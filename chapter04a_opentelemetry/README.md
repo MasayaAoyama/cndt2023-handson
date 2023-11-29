@@ -577,6 +577,10 @@ spec:
     spec: {...}
 ```
 
+```shell
+kubectl -n handson patch deploy -p='[{"op": "add", "path": "/spec/template/metadata/instrumentation.opentelemetry.io~0inject-go", "value":"go-instrumentation"}]' handson-blue
+```
+
 作成されたPodを確認すると、Podにサイドカーとして`opentelemetry-auto-instrumentation`コンテナが含まれた形で作成されていることが確認できます。
 
 ```bash
